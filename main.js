@@ -160,7 +160,13 @@ async function getRandomProxy() {
 
 async function saveToFile(filename, data) {
     try {
-        await fs.appendFile(filename, `${data}\n`, 'utf-8');
+        await fs.appendFile(filename, `${data}\n`, (err) => {
+            if (err) {
+                console.error("Failed to save data to wallet_success.txt:", err);
+            } else {
+                console.log("✅ Wallet saved successfully!");
+            }
+        });
         log(`Data saved to ${filename}`);
     } catch (error) {
         log(`Failed to save data to ${filename}: ${error.message}`, 'error');
@@ -289,13 +295,9 @@ async function autoRef(count, refCode) {
             }
 
             log(`Finished processing ${i + 1}`, 'success');
-            const walletData = {
-                address: wallet.address,
-                privateKey: wallet.privateKey,
-                refCode: dataLogin.user.refCode,
-            }
+            const walletData = `address: ${wallet.address}, privateKey: ${wallet.privateKey}, refCode: ${dataLogin.user.refCode}`;
 
-            saveToFile('wallet_success.txt', JSON.stringify(walletData));
+            saveToFile('wallet_success.txt', walletData);
 
             await countdown(1000);
         }
