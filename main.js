@@ -161,9 +161,9 @@ async function getRandomProxy() {
 async function saveToFile(filename, data) {
     try {
         await fs.appendFile(filename, `${data}\n`, 'utf-8');
-        logger.info(`Data saved to ${filename}`);
+        log(`Data saved to ${filename}`);
     } catch (error) {
-        logger.error(`Failed to save data to ${filename}: ${error.message}`);
+        log(`Failed to save data to ${filename}: ${error.message}`, 'error');
     }
 }
 
