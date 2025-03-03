@@ -299,7 +299,7 @@ async function autoRef(count, refCode) {
 
             saveToFile('wallet_success.txt', walletData);
 
-            await countdown(1000);
+            await countdown(60);
         }
 
         log('Đã hoàn thành tạo ví', 'success');
