@@ -103,7 +103,7 @@ async function countdown(seconds) {
     for (let i = seconds; i > 0; i--) {
         const timestamp = new Date().toLocaleTimeString();
         readline.cursorTo(process.stdout, 0);
-        process.stdout.write(`[${timestamp}] [*] Chờ ${i} giây để tiếp tục...`.magenta);
+        process.stdout.write(`[${timestamp}] [*] Tunggu ${i} detik untuk melanjutkan...`.magenta);
         await new Promise(resolve => setTimeout(resolve, 1000));
     }
     readline.cursorTo(process.stdout, 0);
