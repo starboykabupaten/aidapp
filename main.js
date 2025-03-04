@@ -401,7 +401,7 @@ async function runBot() {
 
     if (action === 'ref') {
         const refCode = await askQuestion('Silakan masukkan kode ref: ');
-        const countWallet = await askQuestion('Vui lòng nhập số lượng ví muốn tạo: ');
+        const countWallet = await askQuestion('Silakan masukkan jumlah dompet yang ingin Anda buat: ');
 
         log('Đang chạy bot...', 'custom');
         await autoRef(countWallet, refCode);
