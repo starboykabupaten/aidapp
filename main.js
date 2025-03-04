@@ -400,7 +400,7 @@ async function runBot() {
     }
 
     if (action === 'ref') {
-        const refCode = await askQuestion('Vui lòng nhập mã ref (Enter để bỏ qua): ');
+        const refCode = await askQuestion('Silakan masukkan kode ref: ');
         const countWallet = await askQuestion('Vui lòng nhập số lượng ví muốn tạo: ');
 
         log('Đang chạy bot...', 'custom');
