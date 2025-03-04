@@ -252,7 +252,7 @@ async function autoRef(count, refCode) {
     try {
         for (let i = 0; i < count; i++) {
             const wallet = await createWallet();
-            log(`Đã tạo ví mới: ${wallet.address}`, 'success');
+            log(`Dompet baru dibuat: ${wallet.address}`, 'success');
             const web3 = new Web3();
             const { signature } = web3.eth.accounts.sign('Login', wallet.privateKey);
             const timestamp = Date.now();
@@ -302,7 +302,7 @@ async function autoRef(count, refCode) {
             await countdown(60);
         }
 
-        log('Đã hoàn thành tạo ví', 'success');
+        log('Pembuatan dompet selesai', 'success');
         return true;
     } catch (error) {
         log(`Error processing wallet: ${error.message}`, 'error');
@@ -388,14 +388,14 @@ async function autoTask() {
 async function runBot() {
     const proxies = readProxies();
     if (proxies.length === 0) {
-        log('Không tìm thấy proxy trong file proxy.txt. Vui lòng kiểm tra lại', 'error');
+        log('Tidak ada proxy yang ditemukan di file proxy.txt. Silakan periksa lagi', 'error');
         return;
     }
 
-    //const action = await askQuestion('Bạn muốn chạy autoRef hay autoTask? (ref/task): ');
+    //const action = await askQuestion('Apakah Anda ingin menjalankan autoRef atau autoTask? (ref/task): ');
     const action = 'ref';
     if (action === 'task') {
-        log('Tính năng đang phát triển...', 'warning');
+        log('Fitur sedang dikembangkan...', 'warning');
         return;
     }
 
@@ -403,7 +403,7 @@ async function runBot() {
         const refCode = await askQuestion('Silakan masukkan kode ref: ');
         const countWallet = await askQuestion('Silakan masukkan jumlah dompet yang ingin Anda buat: ');
 
-        log('Đang chạy bot...', 'custom');
+        log('Menjalankan bot...', 'custom');
         await autoRef(countWallet, refCode);
     }
 }
